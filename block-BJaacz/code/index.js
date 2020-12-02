@@ -4,13 +4,27 @@
   Create a function named addTwo which accepts a number, adds 2 to the number and return the new value.
 */
 
+let numbers = [1, 2, 3, 4, 5, 6];
+
+function addTwo(number) {
+  return number + 2;
+}
+
 /*
   Create a function named addThree which accepts a number, adds 3 to the number and return the new value.
 */
 
+function addThree(number) {
+  return number + 3;
+}
+
 /*
   Create a function named addFive which accepts a number, adds 5 to the number and return the new value.
 */
+
+function addFive(number) {
+  return number + 5;
+}
 
 /*
   Create a function named addTwoToArray which accepts:
@@ -19,6 +33,21 @@
     - While doing so use the funciton addTwo
 */
 
+function addTwoToArray(arr) {
+  let result = [];
+
+  let sum = 0;
+
+  for (let num of arr) {
+    sum = addTwo(num);
+    result.push(sum);
+  }
+  console.log(result, "res");
+  return result;
+}
+
+console.log(addTwoToArray(numbers));
+
 /*
   Create a function named addThreeToArray which accepts:
     - an array of numbers
@@ -26,12 +55,42 @@
     - while doing so use the funciton addThree
 */
 
+function addThreeToArray(arr) {
+  let result = [];
+
+  let sum = 0;
+
+  for (let num of arr) {
+    sum = addThree(num);
+    result.push(sum);
+  }
+  console.log(result, "res");
+  return result;
+}
+
+console.log(addThreeToArray(numbers));
+
 /*
   Create a function named addFiveToArray which accepts:
     - an array of numbers
     - aeturns a new array where 2 is added to each element
     - while doing so use the funciton addThree
 */
+
+function addThreeToArray(arr) {
+  let result = [];
+
+  let sum = 0;
+
+  for (let num of arr) {
+    sum = addThree(num);
+    result.push(sum);
+  }
+  console.log(result, "res");
+  return result;
+}
+
+console.log(addThreeToArray(numbers));
 
 /*
 In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeating the code, let's fix this.
@@ -49,6 +108,21 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
     console.log(changeArray([1, 2, 3, 4, 5, 6], addFive)); // [6, 7, 8, 9, 10, 11]
 */
 
+function changeArray(arr, cb) {
+  let result = [];
+
+  let sum = 0;
+
+  for (let num of arr) {
+    sum = cb(num);
+    result.push(sum);
+  }
+  console.log(result, "res");
+  return result;
+}
+
+console.log(changeArray(numbers, addThree));
+
 /*
   Create a function called sendMessage that accepts two arguments:
     - a string (message) and a function (callback).
@@ -60,11 +134,21 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
     console.log(sendMessage("Hello Prompt!", prompt));
 */
 
+function sendMessage(message, cb) {}
+
 /*
 
  Create a function named `first` that accepts an argument a function (callback) and return the same function defination.
 
 */
+
+function callback() {}
+
+function first(cb) {
+  return cb;
+}
+
+console.log(first(callback));
 
 /*
  Create a function named `second`
@@ -72,6 +156,16 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
   - Return the function defination (third) from the second function
   - Also write the required code to call the function
 */
+
+function second() {
+  function third(number) {
+    return number + 1;
+  }
+
+  return third(5);
+}
+
+console.log(second(), "second");
 
 /*
  Write a function named `callMe` which 
@@ -83,23 +177,23 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
 
 // Data Starts (Don't change this)
 const people = [
-  { name: 'John Doe', age: 16 },
-  { name: 'Thomas Calls', age: 19 },
-  { name: 'Liam Smith', age: 20 },
-  { name: 'Jessy Pinkman', age: 18 },
+  { name: "John Doe", age: 16 },
+  { name: "Thomas Calls", age: 19 },
+  { name: "Liam Smith", age: 20 },
+  { name: "Jessy Pinkman", age: 18 },
 ];
 
 const grades = [
-  { name: 'John', grade: 8, sex: 'M' },
-  { name: 'Sarah', grade: 12, sex: 'F' },
-  { name: 'Bob', grade: 16, sex: 'M' },
-  { name: 'Johnny', grade: 2, sex: 'M' },
-  { name: 'Ethan', grade: 4, sex: 'M' },
-  { name: 'Paula', grade: 18, sex: 'F' },
-  { name: 'Donald', grade: 5, sex: 'M' },
-  { name: 'Jennifer', grade: 13, sex: 'F' },
-  { name: 'Courtney', grade: 15, sex: 'F' },
-  { name: 'Jane', grade: 9, sex: 'F' },
+  { name: "John", grade: 8, sex: "M" },
+  { name: "Sarah", grade: 12, sex: "F" },
+  { name: "Bob", grade: 16, sex: "M" },
+  { name: "Johnny", grade: 2, sex: "M" },
+  { name: "Ethan", grade: 4, sex: "M" },
+  { name: "Paula", grade: 18, sex: "F" },
+  { name: "Donald", grade: 5, sex: "M" },
+  { name: "Jennifer", grade: 13, sex: "F" },
+  { name: "Courtney", grade: 15, sex: "F" },
+  { name: "Jane", grade: 9, sex: "F" },
 ];
 // Data Ends
 
@@ -113,6 +207,14 @@ const grades = [
     console.log(isAdult(people[1])); // true
     console.log(isAdult(people[2])); // true
 */
+
+// function isAdult(obj) {
+//   for (let age of people) {
+//     if (obj.age > 18) {
+//       return true;
+//     }
+//   }
+// }
 
 /*
   Create a function named isMale which accepts:
