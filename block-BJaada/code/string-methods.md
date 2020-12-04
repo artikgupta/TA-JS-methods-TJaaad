@@ -265,20 +265,6 @@ num.replace("800", "3"); // 3
 
 16. `slice`
 
-Parameter: total length, total length of the string which it will return after padding has been applied
-
-padStr: The str to pad with current str.
-
-Return : A string with the total lenght , with padStr applied at the end.
-
-Example:
-
-```js
-let num = "800";
-
-num.padEnd(6, "3");
-```
-
 17. `split`
 
 Parameter: total length, total length of the string which it will return after padding has been applied
