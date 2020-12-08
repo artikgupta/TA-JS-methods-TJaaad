@@ -1,6 +1,6 @@
 // Use the below two arrays and practice array methods
 var numbers = [1, 12, 4, 18, 9, 7, 11, 3, 101, 5, 6, 9];
-var strings = ['This', 'is', 'a', 'collection', 'of', 'words'];
+var strings = ["This", "is", "a", "collection", "of", "words"];
 
 /*
 NOTE:
@@ -12,17 +12,31 @@ Clone the array before using sort method: [...arr]
 
 // - Find the index of `101` in numbers
 
+console.log(numbers.indexOf(101));
+
 // - Find the last index of `9` in numbers
+
+console.log(numbers.lastIndexOf(9));
 
 // - Convert value of strings array into a sentance like "This is a collection of words"
 
+console.log(strings.join(" "));
+
 // - Add two new words in the strings array "called" and "sentance"
+
+console.log(strings.push("called", "sentence"));
 
 // - Again convert the updated array (strings) into sentance like "This is a collection of words called sentance"
 
+console.log(strings.join(" "));
+
 // - Remove the first word in the array (strings)
 
+strings.shift();
+
 // - Find all the words that contain 'is' use string method 'includes'
+
+strings.includes("is");
 
 // - Find all the words that contain 'is' use string method 'indexOf'
 
@@ -54,14 +68,21 @@ Clone the array before using sort method: [...arr]
 
 // - Customers Array
 var customers = [
-  { firstname: 'Joe', lastname: 'Blogs' },
-  { firstname: 'John', lastname: 'Smith' },
-  { firstname: 'Dave', lastname: 'Jones' },
-  { firstname: 'Jack', lastname: 'White' },
+  { firstname: "Joe", lastname: "Blogs" },
+  { firstname: "John", lastname: "Smith" },
+  { firstname: "Dave", lastname: "Jones" },
+  { firstname: "Jack", lastname: "White" },
 ];
 // - Find all customers whose firstname starts with 'J'
 
+for (let customer of customers) {
+  console.log(customer.firstname.startsWith("J"));
+}
+
 // - Create new array with only first name
+
+let mapped = customers.map((customer) => customer.firstname);
+console.log(mapped);
 
 // - Create new array with all the full names (ex: "Joe Blogs")
 
