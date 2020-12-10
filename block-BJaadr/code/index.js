@@ -20,23 +20,29 @@ function nameWithS() {
 }
 
 function nameWithA() {
-  return got.houses.reduce(
-    (acc, cv) => acc + cv.people.filter((v) => v.name.includes("a")),
-    ""
-  );
+  return got.houses
+    .reduce((acc, cv) => {
+      acc.push(cv.people.filter((val) => val.name.includes("a")));
+      return acc;
+    }, [])
+    .flat();
 }
 
 function surnameWithS() {
+  let surname;
   // your code goes here
 }
 
 function surnameWithA() {
-  // your code goes here
+  // let surname = [];
+  // for (let house of got.houses) {
+  //   for (let i = 0; i < house.people.length; i++) {
+  //     console.log(house.people.name[i]);
+  //   }
+  // }
 }
 
-function peopleNameOfAllHouses() {
-  // your code goes here
-}
+function peopleNameOfAllHouses() {}
 
 // Testing your result after writing your function
 console.log(countAllPeople());
