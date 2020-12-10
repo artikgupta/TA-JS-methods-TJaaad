@@ -11,6 +11,10 @@ let words = [
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
 
+function findLongestWord(array) {
+  return [...array].sort((a, b) => a.length - b.length).pop();
+}
+
 // - Convert the above array "words" into an array of length of word instead of word.
 
 let length = words.map((v) => v.length);
@@ -21,14 +25,17 @@ console.log(length);
 
 // let newArr = []
 
-let filtered = words.filter(
-  (v) =>
-    v.includes("a") ||
-    v.includes("e") ||
-    v.includes("i") ||
-    v.includes("o") ||
-    v.includes("u")
-);
+function checkVowel(words) {
+  return (
+    words.toLowerCase().includes("a") ||
+    words.toLowerCase().includes("e") ||
+    words.toLowerCase().includes("i") ||
+    words.toLowerCase().includes("o") ||
+    words.toLowerCase().includes("o")
+  );
+}
+
+let filtered = words.filter((v) => checkVowel(v));
 
 console.log(filtered);
 
@@ -38,16 +45,11 @@ console.log(words.indexOf("rhythm"));
 
 // - Create a new array that contians words not starting with vowel.
 
-let unFiltered = words.filter(
-  (v) =>
-    !v.includes("a") ||
-    !v.includes("e") ||
-    !v.includes("i") ||
-    !v.includes("o") ||
-    !v.includes("u")
-);
-console.log(unFiltered);
+let notStartWithVowel = words.filter((v) => !checkVowel(v)[0]);
+
 // - Create a new array that contianse words not ending with vowel
+
+let notEndWithVowel = words.filter((v) => !checkVowel(v)[v.length - 1]);
 
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
@@ -71,15 +73,21 @@ console.log(evenNumber);
 
 // - Create  a new array that contains only odd numbers.
 
-let evenNumber = numbers.filter((v) => v % 2 !== 0);
+let oddNumber = numbers.filter((v) => v % 2 !== 0);
 
 console.log(evenNumber);
 
 // - Create a new array that should have true for even number and false for odd numbers.
 
+let oddOrEven = numbers.map((v) => v % 2 === 0);
+
 // - Sort the above number in assending order.
 
+numbers.sort((a, b) => a - b);
+
 // - Does sort mutate the original array?
+
+// answer: Yes, it does.
 
 // - Find the sum of the numbers in the array.
 
@@ -87,7 +95,11 @@ numbers.reduce((acc, cv) => acc + cv);
 
 //- Write a function averageNumbers that receives an array of numbers and calculate the average of the numbers
 
-function averageNumbers(array) {}
+function averageNumbers(array) {
+  let length = array.length;
+  let total = array.reduce((a, c) => a + c);
+  return total / length;
+}
 
 let strings = [
   "seat",
@@ -103,3 +115,9 @@ let strings = [
 ];
 
 // - Write a function averageWordLength that receives an array of words2 and calculate the average length of the words.
+
+function averageWordLength(words) {
+  let wordsLength = words.map((v) => v.length).reduce((a, c) => a + c);
+
+  return wordsLength;
+}
