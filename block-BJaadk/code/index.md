@@ -11,7 +11,7 @@ function double(num) {
 let doubleNum = numbers.forEach(double);
 ```
 
-![](./img/main.png)
+![](./img/alertForEach.jpg)
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -21,6 +21,8 @@ function double(num) {
 let doubleNum = numbers.forEach(double);
 ```
 
+// undefined
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function double(num) {
@@ -28,6 +30,8 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
+
+![](./img/consoleForEach.jpg)
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -37,6 +41,8 @@ function double(num) {
 let doubleNumbers = numbers.map(double);
 ```
 
+![](./img/consoleForEach.jpg)
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function addTwo(num) {
@@ -45,6 +51,8 @@ function addTwo(num) {
 let doubleNumbers = numbers.map(addTwo);
 ```
 
+![](./img/mapReturn.jpg)
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function addTwo(num) {
@@ -52,6 +60,8 @@ function addTwo(num) {
 }
 let doubleNumbers = numbers.map(addTwo);
 ```
+
+![](./img/mapConsole.jpg)
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -69,6 +79,8 @@ function isOdd(num) {
 let oddNumbers = numbers.filter(isOdd);
 ```
 
+![](./img/returnFilter.jpg)
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function test(num) {
@@ -85,6 +97,8 @@ function test(num) {
 let filteredNumbers = numbers.filter(test);
 ```
 
+![](./img/filterConsole.jpg)
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function add(accumulator, currentValue) {
@@ -93,6 +107,8 @@ function add(accumulator, currentValue) {
 let sum = numbers.reduce(add);
 ```
 
+![](./img/reduceReturn.jpg)
+
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
 function add(accumulator, currentValue) {
@@ -100,3 +116,5 @@ function add(accumulator, currentValue) {
 }
 let sum = numbers.reduce(add);
 ```
+
+![](./img/reduceConsole.jpg)
