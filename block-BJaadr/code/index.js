@@ -40,7 +40,7 @@ function surnameWithS() {
     );
 
     return acc;
-  });
+  }, []);
 }
 
 function surnameWithA() {
@@ -52,7 +52,7 @@ function surnameWithA() {
     );
 
     return acc;
-  });
+  }, []);
 }
 
 function peopleNameOfAllHouses() {
