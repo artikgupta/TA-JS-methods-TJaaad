@@ -15,11 +15,7 @@ let persons = [
 
 // Create an array peopleName and store value of sex key from persons array
 
-let peopleName = [];
-
-peopleName.push(persons.map((v) => v.sex));
-
-console.log(peopleName);
+let peopleName = persons.map((v) => v.sex);
 
 // Create an array peopleGrade and store the value of grade key from persons array
 
@@ -66,12 +62,16 @@ console.log(evenGrade);
 
 // Find the first name that starts with 'J' in persons array and log the object
 
+console.log(persons.find((person) => person.name.startsWith("J")));
+
 // Find the first name that starts with 'P' in persons array and log the object
+
+console.log(persons.find((person) => person.name.startsWith("P")));
 
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
 
 let val = persons.filter((v) => {
-  v.name.startsWith("J");
+  v.name.startsWith("J") && persons.grade > 10 && persons.sex === "F";
 });
 
 // Filter all the female from persons array and store in femalePersons array
@@ -86,32 +86,66 @@ console.log(gradeTotal);
 
 // Find the average grade
 
-let gradeLength = persons.map((v) => v.grade.lenght);
-
-console.log(gradeLength);
-
-let averageGrade = gradeTotal / gradeLength;
+let averageGrade = gradeTotal / peopleGrade.length;
 
 console.log(averageGrade);
 
 // Find the average grade of male
 
+let avgMaleGrade = persons
+  .filter((v) => v === "M")
+  .map((people) => people.grade);
+
+avgMaleGrade.reduce((a, c) => {
+  return a + c;
+}, 0) / avgMaleGrade.length;
+
 // Find the average grade of female
+
+let avgFemaleGrade = persons
+  .filter((v) => v === "M")
+  .map((people) => people.grade);
+
+avgFemaleGrade.reduce((a, c) => {
+  return a + c;
+}, 0) / avgFemaleGrade.length;
 
 // Find the highest grade
 
+[...peopleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade in male
+
+[...avgMaleGrade].sort((a, b) => a - b).pop();
 
 // Find the highest grade in female
 
+[...avgFemaleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+let personWithJorP = persons.filter(
+  (v) => v.name.startsWith("J") || v.name.startsWith("P")
+);
+
+let gradeOfJorP = personWithJorP.map((v) => v.grade);
+
+[...gradeOfJorP].sort((a, b) => a - b).pop();
 
 // Sort the peopleGrade in ascending order and log the value of peopleGrade. Notice did the elements of peopleGrade got changed?
 
+peopleGrade.sort((a, b) => a - b);
 // Sort the peopleGrade in descending order
+peopleGrade.sort((a, b) => b - a);
 
 // Sort the peopleGrade in descending order this time you have to make sure you don't mutate the original array
 
+let sortedGrade = [...peopleGrade].sort((a, b) => a - b);
+
 // Sort the array peopelName in ascending `ABCD..Za....z`
 
+peopleName.sort();
+
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
+
+[...peopleName].sort();
