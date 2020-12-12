@@ -17,29 +17,22 @@ let persons = [
 
 // Find the average grade
 
+let personLenght = persons.length;
+
 let TotalGrade = persons.reduce((acc, cv) => {
   return acc + cv.grade;
 }, 0);
 
-let length = persons.map((v) => v.grade).length;
-
-console.log(length);
-
-let averageGrade = TotalGrade / length;
-
-console.log(averageGrade);
+console.log(TotalGrade / personLenght);
 
 // Find the average grade of male
 
 let male = persons.filter((v) => v.sex === "M");
 
-console.log(male);
-
 let maleGrade = persons
   .filter((v) => v.sex === "M")
   .reduce((acc, cv) => {
-    acc + cv.grade;
-    return acc;
+    return acc + cv.grade;
   }, []);
 
 let averageMaleMarks = maleGrade / male.length;
@@ -48,13 +41,48 @@ console.log(averageMaleMarks);
 
 // Find the average grade of female
 
+let female = persons.filter((v) => v.sex === "F");
+
+let femaleGrade = persons
+  .filter((v) => v.sex === "M")
+  .reduce((acc, cv) => {
+    return acc + cv.grade;
+  }, []);
+
+let averageFemaleMarks = femaleGrade / female.length;
+
+console.log(averageMaleMarks);
+
 // Find the highest grade
+
+let highestGrade = persons
+  .map((v) => v.grade)
+  .sort((a, b) => a - b)
+  .pop();
 
 // Find the highest grade in male
 
+let highestMaleGrade = persons
+  .filter((v) => v.sex === "M")
+  .map((v) => v.grade)
+  .sort((a, b) => a - b)
+  .pop();
+
 // Find the highest grade in female
 
+let highestFemaleGrade = persons
+  .filter((v) => v.sex === "F")
+  .map((v) => v.grade)
+  .sort((a, b) => a - b)
+  .pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+let highestGradeWithJorP = persons
+  .filter((v) => v.name.startsWith("J") || v.name.startsWith("P"))
+  .map((v) => v.grade)
+  .sort((a, b) => a - b)
+  .pop();
 
 const fruitBasket = [
   "banana",
@@ -81,7 +109,11 @@ Output:
 */
 
 let fruitsObj = fruitBasket.reduce((acc, cv) => {
-  acc = acc[cv] = cv.lastIndexOf(cv);
+  if (acc[cv]) {
+    acc[cv] = acc[cv] + 1;
+  } else {
+    acc[cv] = 1;
+  }
 
   return acc;
 }, {});
@@ -95,6 +127,11 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
+let fruitsArray = Object.keys(fruitsObj).reduce((acc, cv) => {
+  acc = acc.concat([[cv, fruitsObj[cv]]]);
+  return acc;
+}, []);
+
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -104,10 +141,10 @@ const data = [
 
 // Using reduce flat data array
 
-// let flatData = data.reduce((acc, cv) => {
-//   acc = cv.map((v) => v.flat(3));
-//   return acc;
-// });
+let flatData = data.reduce((acc, cv) => {
+  acc = acc.concat(cv);
+  return acc;
+});
 
 const dataTwo = [
   [1, 2, 3],
@@ -118,10 +155,10 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
-// let flatData2 = dataTwo.reduce((acc, cv) => {
-//   acc = cv.map((v) => v.flat(infinity));
-//   return acc;
-// });
+let flatData2 = dataTwo.reduce((acc, cv) => {
+  acc = acc.concat(cv.flat(Infinity));
+  return acc;
+});
 
 /*
 Create these functions which accepts a number value and returns a number value:
@@ -131,6 +168,22 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+
+function increment(num) {
+  return num + 1;
+}
+function double(num) {
+  return num * 2;
+}
+function decrement(num) {
+  return num - 1;
+}
+function triple(num) {
+  return num * 3;
+}
+function half(num) {
+  return Math.round(num / 2);
+}
 
 let pipeline = [
   increment,
@@ -142,6 +195,11 @@ let pipeline = [
   half,
   increment,
 ];
+
+pipeline.reduce((acc, cv) => {
+  acc = cv(acc);
+  return acc;
+}, 3);
 
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -157,18 +215,23 @@ EXAMPLE:
   ...
 */
 
-// let pipeline2 = [
-//   increment,
-//   half,
-//   double,
-//   decrement,
-//   decrement,
-//   triple,
-//   double,
-//   triple,
-//   half,
-//   increment,
-//   triple,
-// ];
+let pipeline2 = [
+  increment,
+  half,
+  double,
+  decrement,
+  decrement,
+  triple,
+  double,
+  triple,
+  half,
+  increment,
+  triple,
+];
 
+pipeline2.reduce((acc, cv) => {
+  acc = cv(acc);
+  console.log(acc);
+  return acc;
+}, 8);
 // Find the output using pipeline2 the initial value if 8
